@@ -51,7 +51,9 @@ dependencies:
   sidebarx: ^0.4.0
   sleek_circular_slider: ^2.0.1
   fl_chart: ^0.55.0
+  flutter_animation_progress_bar: ^2.2.1
 
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter

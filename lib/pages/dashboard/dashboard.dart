@@ -1,9 +1,9 @@
-import 'package:dsa_tracker/pages/dashboard/components/MiddleColumn/midColumn.dart';
 import 'package:dsa_tracker/pages/dashboard/components/rightColumn.dart';
-import 'package:dsa_tracker/theme/app_theme.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:sidebarx/sidebarx.dart';
+
+import 'components/midColumn.dart';
 
 class DashboardScreen extends StatelessWidget {
   DashboardScreen({Key? key}) : super(key: key);
@@ -12,188 +12,131 @@ class DashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Row(
-        children: [
-          SidebarX(
-            controller: _controller,
-            theme: SidebarXTheme(
-              // height: 1,
-
-              padding: EdgeInsets.only(left: 10),
-              margin: const EdgeInsets.only(left: 0, right: 6),
-              decoration: BoxDecoration(
-                color: AppTheme.light.primaryColor,
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(16),
-                  bottomRight: Radius.circular(16),
+    return MaterialApp(
+      title: 'SidebarX Example',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryColor: primaryColor,
+        canvasColor: canvasColor,
+        scaffoldBackgroundColor: scaffoldBackgroundColor,
+        textTheme: const TextTheme(
+          headline5: TextStyle(
+            color: Colors.white,
+            fontSize: 46,
+            fontWeight: FontWeight.w800,
+          ),
+        ),
+      ),
+      home: Scaffold(
+        body: Row(
+          children: [
+            SidebarX(
+              controller: _controller,
+              theme: SidebarXTheme(
+                margin: const EdgeInsets.all(10),
+                width: 80,
+                decoration: BoxDecoration(
+                  color: canvasColor,
+                  borderRadius: BorderRadius.circular(20),
                 ),
-              ),
-              textStyle: const TextStyle(color: Colors.white),
-              selectedTextStyle: const TextStyle(color: Colors.white),
-              itemTextPadding: const EdgeInsets.only(left: 30),
-              selectedItemTextPadding: const EdgeInsets.only(left: 20),
-              itemDecoration: BoxDecoration(
-                border: Border.all(color: AppTheme.light.primaryColor),
-              ),
-
-              selectedItemDecoration: BoxDecoration(
-                // color: AppTheme.light.canvasColor,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(10),
-                  bottomLeft: Radius.circular(10),
+                textStyle: const TextStyle(color: Colors.white),
+                selectedTextStyle: const TextStyle(color: Colors.white),
+                itemTextPadding: const EdgeInsets.only(left: 30),
+                selectedItemTextPadding: const EdgeInsets.only(left: 30),
+                itemDecoration: BoxDecoration(
+                  border: Border.all(color: canvasColor),
                 ),
-                border: Border.all(
-                  color: AppTheme.yellowColor.withOpacity(0.5),
-                ),
-                gradient: LinearGradient(
-                  colors: [
-                    AppTheme.light.secondaryHeaderColor,
-                    AppTheme.light.secondaryHeaderColor
+                selectedItemDecoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(
+                    color: actionColor.withOpacity(0.37),
+                  ),
+                  gradient: const LinearGradient(
+                    colors: [accentCanvasColor, canvasColor],
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.28),
+                      blurRadius: 30,
+                    )
                   ],
                 ),
-                // boxShadow: [
-                //   BoxShadow(
-                //     color: Colors.black.withOpacity(0.28),
-                //     blurRadius: 30,
-                //   )
-                // ],
-              ),
-              iconTheme: const IconThemeData(
-                color: Colors.white,
-                size: 20,
-              ),
-            ),
-            extendedTheme: const SidebarXTheme(
-              width: 200,
-              decoration: BoxDecoration(
-                color: canvasColor,
-              ),
-              margin: EdgeInsets.only(right: 10),
-            ),
-            // footerDivider: divider,
-            headerBuilder: (context, extended) {
-              return SizedBox(
-                height: 100,
-                child: Padding(
-                  padding: const EdgeInsets.all(2.0),
-                  child:
-                      Image.asset('assets/images/dsa_tracker_logo_white.png'),
+                iconTheme: const IconThemeData(
+                  color: Colors.white,
+                  size: 20,
                 ),
-              );
-            },
-            items: [
-              SidebarXItem(
-                icon: Icons.home,
-                label: 'Home',
-                onTap: () {
-                  debugPrint('Hello');
-                },
               ),
-              const SidebarXItem(
-                icon: EvaIcons.fileTextOutline,
-                label: 'Sheets',
+              extendedTheme: const SidebarXTheme(
+                width: 200,
+                decoration: BoxDecoration(
+                  color: canvasColor,
+                ),
+                margin: EdgeInsets.only(right: 10),
               ),
-              const SidebarXItem(
-                icon: EvaIcons.bookmarkOutline,
-                label: 'Bookmark',
-              ),
-              const SidebarXItem(
-                icon: Icons.edit_calendar_outlined,
-                label: 'Q.s Calculator',
-              ),
-              const SidebarXItem(
-                icon: EvaIcons.barChart,
-                label: 'Progress',
-              ),
-              const SidebarXItem(
-                icon: EvaIcons.peopleOutline,
-                label: 'About Us',
-              ),
-            ],
-          ),
-          HomeScreen(controller: _controller),
-          Expanded(
-            child: Center(
-              child: HomeScreen(controller: _controller),
+              footerDivider: divider,
+              headerBuilder: (context, extended) {
+                return SizedBox(
+                  height: 100,
+                  child: Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child:
+                        Image.asset('assets/images/dsa_tracker_logo_white.png'),
+                  ),
+                );
+              },
+              items: [
+                SidebarXItem(
+                  icon: Icons.home,
+                  label: 'Home',
+                  onTap: () {
+                    debugPrint('Hello');
+                  },
+                ),
+                SidebarXItem(
+                  icon: EvaIcons.fileTextOutline,
+                  label: 'Sheets',
+                ),
+                SidebarXItem(
+                  icon: EvaIcons.bookmarkOutline,
+                  label: 'Bookmark',
+                ),
+                const SidebarXItem(
+                  icon: Icons.edit_calendar_outlined,
+                  label: 'Q.s Calculator',
+                ),
+                SidebarXItem(
+                  icon: EvaIcons.barChart,
+                  label: 'Progress',
+                ),
+                SidebarXItem(
+                  icon: EvaIcons.peopleOutline,
+                  label: 'About Us',
+                ),
+              ],
             ),
-          ),
-        ],
+            Expanded(
+              flex: 12,
+              child: Center(
+                child: MidColumn(controller: _controller),
+              ),
+            ),
+            Expanded(
+                flex: 5,
+                child: Center(
+                  child: RightColumn(controller: _controller),
+                ))
+          ],
+        ),
       ),
     );
   }
 }
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({
-    Key? key,
-    required this.controller,
-  }) : super(key: key);
-
-  final SidebarXController controller;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return AnimatedBuilder(
-      animation: controller,
-      builder: (context, child) {
-        switch (controller.selectedIndex) {
-          case 0:
-            return
-                Center(
-                  child: Row(
-                    children: [
-                      MidColumn(controller: controller),
-                      // RightColumn(),
-                    ],
-                  ),
-                );
-
-            //     ListView.builder(
-            //   padding: const EdgeInsets.only(top: 10),
-            //   itemBuilder: (context, index) => Container(
-            //     height: 100,
-            //     width: double.infinity,
-            //     margin: const EdgeInsets.only(bottom: 10, right: 10),
-            //     decoration: BoxDecoration(
-            //       borderRadius: BorderRadius.circular(20),
-            //       color: AppTheme.light.cardColor,
-            //       boxShadow: const [BoxShadow()],
-            //     ),
-            //   ),
-            // );
-
-          case 1:
-            return Text(
-              'S',
-              style: theme.textTheme.headline5,
-            );
-          case 2:
-            return Text(
-              'People',
-              style: theme.textTheme.headline5,
-            );
-          case 3:
-            return Text(
-              'Favorites',
-              style: theme.textTheme.headline5,
-            );
-          case 4:
-            return Text(
-              'Custom iconWidget',
-              style: theme.textTheme.headline5,
-            );
-          default:
-            return Text(
-              'Not found page',
-              style: theme.textTheme.headline5,
-            );
-        }
-      },
-    );
-  }
-}
-
-final divider = Divider(color: Colors.white.withOpacity(0.3), height: 1);
+const primaryColor = Color(0xFF685BFF);
 const canvasColor = Color(0xFF2E2E48);
+const scaffoldBackgroundColor = Color(0xFF464667);
+const accentCanvasColor = Color(0xFF3E3E61);
+const white = Colors.white;
+final actionColor = const Color(0xFF5F5FA7).withOpacity(0.6);
+
+final divider = Divider(color: white.withOpacity(0.3), height: 1);

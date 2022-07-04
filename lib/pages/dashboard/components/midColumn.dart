@@ -1,12 +1,12 @@
-import 'package:dsa_tracker/pages/home/homeRC.dart';
+import 'package:dsa_tracker/pages/home/homeMC.dart';
 import 'package:dsa_tracker/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:sidebarx/sidebarx.dart';
 
 import '../../../shared_components/sheetCard.dart';
 
-class RightColumn extends StatelessWidget {
-  const RightColumn({
+class MidColumn extends StatelessWidget {
+  const MidColumn({
     Key? key,
     required this.controller,
   }) : super(key: key);
@@ -21,26 +21,14 @@ class RightColumn extends StatelessWidget {
       builder: (context, child) {
         switch (controller.selectedIndex) {
           case 0:
-            return
-                // ListView(
-                //   children: [HomeRightColumn()],
-                // );
-                Container(
-              child: HomeRightColumn(),
+            return Container(
+              child: HomeMiddleColumn(controller: controller),
             );
-          // ListView.builder(
-          // padding: const EdgeInsets.only(top: 30),
-          // itemBuilder: (context, index) => Container(
-          //   height: 100,
-          //   width: double.infinity,
-          //   margin: const EdgeInsets.only(bottom: 10, right: 10),
-
-          // decoration: BoxDecoration(
-          //   borderRadius: BorderRadius.circular(20),
-          //   color: Theme.of(context).canvasColor,
-          //   boxShadow: const [BoxShadow()],
-          // ),
-
+          // ListView(
+          //   children: [
+          //     HomeMiddleColumn(controller: controller),
+          //   ],
+          // );
           case 1:
             return Text(
               'Search',

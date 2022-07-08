@@ -1,8 +1,10 @@
+import 'package:dsa_tracker/shared_components/popUpCardBody.dart';
 import 'package:dsa_tracker/theme/app_theme.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
+import 'package:popup_card/popup_card.dart';
 
 class HomeRightColumn extends StatelessWidget {
   @override
@@ -15,7 +17,7 @@ class HomeRightColumn extends StatelessWidget {
           padding: EdgeInsets.only(left: 20.0),
           color: Colors.white,
           child: Column(
-            children: [
+            children: <Widget>[
               SizedBox(
                 height: 10.0,
               ),
@@ -29,19 +31,40 @@ class HomeRightColumn extends StatelessWidget {
                       width: 5.0,
                     ),
                     Icon(EvaIcons.bellOutline),
-                    SizedBox(
-                      width: 5.0,
-                    ),
-                    SizedBox(
-                      height: 30.0,
-                      width: 30.0,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.network(
-                          'https://images.unsplash.com/photo-1610273313191-1e96cd072c2e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1900&q=80',
-                          fit: BoxFit.cover,
+                    // SizedBox(
+                    //   width: 5.0,
+                    // ),
+
+                    // POP UP LOGIN CARD
+                    PopupItemLauncher(
+                      tag: 'test',
+                      child: Material(
+                        child: Container(
+                          alignment: Alignment.center,
+                          height: 30,
+                          width: 30,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color: AppTheme.blueColor,
+                          ),
+                          child: Text(
+                            'S',
+                            style: GoogleFonts.nunitoSans(
+                              fontSize: 16,
+                              color: Colors.white,
+                            ),
+                          ),
                         ),
                       ),
+                      //   popUp: PopUpItem(
+                      //     padding: EdgeInsets.all(8),
+                      //     color: Colors.white,
+                      //     shape: RoundedRectangleBorder(
+                      //         borderRadius: BorderRadius.circular(10)),
+                      //     // elevation: 2,
+                      //     tag: 'test',
+                      //     child: const PopUpItemBody(),
+                      //   ),
                     ),
                   ],
                 ),

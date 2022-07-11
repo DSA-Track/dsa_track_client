@@ -53,6 +53,7 @@ dependencies:
   fl_chart: ^0.55.0
   flutter_animation_progress_bar: ^2.2.1
   popup_card: ^0.1.0
+  syncfusion_flutter_datepicker: ^20.2.36
 
   
 dev_dependencies:

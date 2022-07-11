@@ -96,13 +96,13 @@ class DashboardScreen extends StatelessWidget {
                   icon: EvaIcons.fileTextOutline,
                   label: 'Sheets',
                 ),
-                SidebarXItem(
-                  icon: EvaIcons.bookmarkOutline,
-                  label: 'Bookmark',
-                ),
                 const SidebarXItem(
                   icon: Icons.edit_calendar_outlined,
                   label: 'Q.s Calculator',
+                ),
+                SidebarXItem(
+                  icon: EvaIcons.bookmarkOutline,
+                  label: 'Bookmark',
                 ),
                 SidebarXItem(
                   icon: EvaIcons.barChart,

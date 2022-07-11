@@ -56,15 +56,15 @@ class HomeRightColumn extends StatelessWidget {
                           ),
                         ),
                       ),
-                      //   popUp: PopUpItem(
-                      //     padding: EdgeInsets.all(8),
-                      //     color: Colors.white,
-                      //     shape: RoundedRectangleBorder(
-                      //         borderRadius: BorderRadius.circular(10)),
-                      //     // elevation: 2,
-                      //     tag: 'test',
-                      //     child: const PopUpItemBody(),
-                      //   ),
+                        popUp: PopUpItem(
+                          padding: EdgeInsets.all(8),
+                          color: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          // elevation: 2,
+                          tag: 'test',
+                          child: const PopUpItemBody(),
+                        ),
                     ),
                   ],
                 ),

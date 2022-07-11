@@ -1,4 +1,6 @@
+import 'package:dsa_tracker/pages/Q_Calculator/Q_RC.dart';
 import 'package:dsa_tracker/pages/home/homeMC.dart';
+import 'package:dsa_tracker/pages/sheets/sheetMC.dart';
 import 'package:dsa_tracker/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:sidebarx/sidebarx.dart';
@@ -30,28 +32,31 @@ class MidColumn extends StatelessWidget {
           //   ],
           // );
           case 1:
-            return Text(
-              'Search',
-              style: theme.textTheme.headline5,
-            );
+            return SheetMiddleColumn(controller: controller);
+          // Text(
+          //   'Search',
+          //   style: theme.textTheme.headline5,
+          // );
           case 2:
+            // return Q_RightColumn();
             return Text(
-              'People',
+              'Question/Day',
               style: theme.textTheme.headline5,
             );
           case 3:
             return Text(
-              'Favorites',
+              'Bookmark',
               style: theme.textTheme.headline5,
             );
+
           case 4:
             return Text(
-              'Custom iconWidget',
+              'Progress',
               style: theme.textTheme.headline5,
             );
           default:
             return Text(
-              'Not found page',
+              'About us',
               style: theme.textTheme.headline5,
             );
         }

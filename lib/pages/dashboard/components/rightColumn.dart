@@ -1,4 +1,8 @@
+import 'package:dsa_tracker/pages/Q_Calculator/Q_MC.dart';
+import 'package:dsa_tracker/pages/Q_Calculator/Q_RC.dart';
 import 'package:dsa_tracker/pages/home/homeRC.dart';
+import 'package:dsa_tracker/pages/progress/progressRC.dart';
+import 'package:dsa_tracker/pages/sheets/sheetRC.dart';
 import 'package:dsa_tracker/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:sidebarx/sidebarx.dart';
@@ -42,28 +46,34 @@ class RightColumn extends StatelessWidget {
           // ),
 
           case 1:
-            return Text(
-              'Search',
-              style: theme.textTheme.headline5,
-            );
+            return SheetRightColumn(controller: controller);
+          //   return Text(
+          //   'Sheet ',
+          //   style: theme.textTheme.headline5,
+          // );
+
           case 2:
+            // return Q_RightColumn();
             return Text(
-              'People',
+              'Questions/Day',
               style: theme.textTheme.headline5,
             );
           case 3:
             return Text(
-              'Favorites',
+              'Bookmark',
               style: theme.textTheme.headline5,
             );
+
           case 4:
+            // return ProgressRightColumn(controller: controller);
             return Text(
-              'Custom iconWidget',
+              'Progress',
               style: theme.textTheme.headline5,
             );
+
           default:
             return Text(
-              'Not found page',
+              'About us',
               style: theme.textTheme.headline5,
             );
         }
